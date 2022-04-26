@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ItemListContainer.css'
+import ItemList from '../ItemList'
 
 function ItemListContainer(props) {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => { 
+        const myPromise = new Promise((resolve, reject) => {
+            const itemList = [
+                { id: 1, name: 'random 1', img: 'https://picsum.photos/id/1/200' }
+                , { id: 2, name: 'random 2', img: 'https://picsum.photos/id/2/200' }
+                , { id: 3, name: 'random 3', img: 'https://picsum.photos/id/3/200' }
+                , { id: 4, name: 'random 4', img: 'https://picsum.photos/id/4/200' }
+                , { id: 5, name: 'random 5', img: 'https://picsum.photos/id/5/200' }
+                , { id: 6, name: 'random 6', img: 'https://picsum.photos/id/6/200' }
+            ]
+            setTimeout(() => {
+                resolve(itemList);
+            }, 2000);
+        }).then(res => { setItems(res) })
+            .catch(err => { 
+                console.error(err);
+            });
+    }, [])
+
     return (
-        <div className='item-list'>
-            <p>{props.texto}</p>
-            { props.children }
+        <div className='item-list-container'>
+            {props.texto ? <p>{props.texto}</p> : null}
+            <ItemList itemList={ items }/>
         </div>
     );
 }

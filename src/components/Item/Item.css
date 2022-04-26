@@ -1,0 +1,7 @@
+.item-card{
+    margin: 10px 0;
+}
+
+.item-card > img{
+    border-radius: 10px;
+}

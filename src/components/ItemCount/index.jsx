@@ -6,12 +6,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons'
 
 const ItemCount = ({ stock, initial, onAdd}) => {
 
-    const [count, setCounter] = useState(1);
-
-    useEffect(() => { 
-        setCounter(initial)
-        return () => {}
-    }, [])
+    const [count, setCount] = useState(initial);
 
     useEffect(() => { 
         return () => {}
@@ -23,9 +18,9 @@ const ItemCount = ({ stock, initial, onAdd}) => {
         <div className='item'>
             <p>Camisa Tiger</p>
             <div className='counter-controls'>
-                <FontAwesomeIcon icon={faPlus} onClick={()=> count < stock ? setCounter(count + 1) : count }/>
+                <FontAwesomeIcon icon={faPlus} onClick={()=> count < stock ? setCount(count + 1) : count }/>
                 <p className='counter'>{ count }</p>
-                <FontAwesomeIcon icon={faMinus} onClick={()=>count > 0 ? setCounter(count - 1) : count }/>
+                <FontAwesomeIcon icon={faMinus} onClick={()=>count > 0 ? setCount(count - 1) : count }/>
             </div>
             <button className='add-items' onClick={() => onAdd(count)}>Agregar al carrito</button>
         </div>

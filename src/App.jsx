@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer'
 /* import Input from './components/Input/index'
 import Button2 from './components/Button/Button2' */
 import ItemCount from './components/ItemCount'
+import ItemList from './components/ItemList'
 
 function App() {
 /* 
@@ -28,10 +29,11 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer texto='Futuro contenedor de items para comprar'>
-        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-        <ItemCount stock={6} initial={4} onAdd={onAdd}/>
+      <ItemListContainer>
       </ItemListContainer>
+
+      <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+      
       {/* <Input handleExtraer={extraerValor} />
       <Button2 texto='Boton' color='red'  onRead={leer} /> 
       <Button2 texto='Boton2' color='blue'  lista={[1,2,3,4]} /> 
@@ -39,7 +41,6 @@ function App() {
       <Button2 texto='Boton4' color='brown'> <p>Este es el children del boton 4</p> </Button2>
       <Button2  color='green'> <p>Esto es un children</p> </Button2>
       */}
-      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

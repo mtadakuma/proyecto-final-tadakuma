@@ -1,12 +1,13 @@
 .item{
     margin: 5px;
+/*     border: 2px solid black; */
+    width: 250px;
 }
 
 .counter-controls{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width: 250px;
     height: 40px;
     border: 2px solid lightgray;
     border-radius: 10px;
@@ -15,7 +16,7 @@
 }
 
 .counter{
-    color:white;
+    color:black;
 }
 
 .add-items{
@@ -25,5 +26,11 @@
     background-color:transparent;
     border:2px solid;
     color:white;
+    background-color:teal;
     border-radius: 10px;
+}
+
+.add-items:hover{
+    color:white;
+    background-color:cadetblue;
 }
