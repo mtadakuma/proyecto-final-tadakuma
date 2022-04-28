@@ -8,19 +8,25 @@ const ItemCount = ({ stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(initial);
 
-    useEffect(() => { 
-        return () => {}
-    }, [count])
+    const addCount = (count) => { 
+        if (count < stock) {
+            setCount(count + 1)
+        }
+    }
 
-    
+    const decreaseCount = (count) => { 
+        if (count > 0) {
+            setCount(count - 1)
+        }
+    }
 
     return (
         <div className='item'>
             <p>Camisa Tiger</p>
             <div className='counter-controls'>
-                <FontAwesomeIcon icon={faPlus} onClick={()=> count < stock ? setCount(count + 1) : count }/>
+                <FontAwesomeIcon icon={faPlus} onClick={()=> addCount(count)}/>
                 <p className='counter'>{ count }</p>
-                <FontAwesomeIcon icon={faMinus} onClick={()=>count > 0 ? setCount(count - 1) : count }/>
+                <FontAwesomeIcon icon={faMinus} onClick={()=> decreaseCount(count)}/>
             </div>
             <button className='add-items' onClick={() => onAdd(count)}>Agregar al carrito</button>
         </div>
