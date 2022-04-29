@@ -3,9 +3,11 @@
     padding:0 20px;
     display: flex;
     justify-content:space-between;
+    align-items:center;
     background-color: bisque;
     color: brown;
     font-size: 1.2em;
+    list-style-type: none;    
 }
 
 .nav-menu{

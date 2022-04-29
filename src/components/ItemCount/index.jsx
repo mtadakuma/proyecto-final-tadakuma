@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './ItemCount.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -22,7 +22,6 @@ const ItemCount = ({ stock, initial, onAdd}) => {
 
     return (
         <div className='item'>
-            <p>Camisa Tiger</p>
             <div className='counter-controls'>
                 <FontAwesomeIcon icon={faPlus} onClick={()=> addCount(count)}/>
                 <p className='counter'>{ count }</p>
