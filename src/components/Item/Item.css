@@ -1,7 +1,25 @@
 .item-card{
     margin: 10px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
 }
 
 .item-card > img{
     border-radius: 10px;
+    max-width: 300px;
+}
+
+.item-card-detail-btn{
+    color:white;
+    margin-top: 10px;
+    padding: 10px 35px;
+    border-radius: 5px;
+    background-color:transparent;
+    border:2px solid white;
+}
+
+.item-card-detail-btn:hover{
+    background-color:#53b0ce;
 }

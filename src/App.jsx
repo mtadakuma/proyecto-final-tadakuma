@@ -13,15 +13,14 @@ function App() {
       {/* <NavBar /> */}
       {/* <ItemListContainer /> */}  
       {/* Comentado para dejar visible sólo ItemDetailContainer */}
-      
+      {/* <ItemDetailContainer/> */}
     
       <NavBar />
-      <ItemDetailContainer/>
-{/*       <Routes>
+      <Routes>
         <Route path='/' element={<ItemListContainer /> }/>
-        <Route path='/catalogo' element={<ItemListContainer />} />
-        <Route path='/detalle' element={<ItemDetailContainer /> }/>
-      </Routes> */}
+        <Route path='/catalogo/:category' element={<ItemListContainer />} />
+        <Route path='/item/:id' element={<ItemDetailContainer /> }/>
+      </Routes> 
       
 
       <header className="App-header">

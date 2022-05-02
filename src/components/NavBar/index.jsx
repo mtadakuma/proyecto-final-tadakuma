@@ -9,14 +9,10 @@ function NavBar() {
         <div className='nav'>
             <li><Link to={'/'}><img src={logo} alt='logo' className='nav-logo'/></Link></li>
             <ul className='nav-menu'>
-                {/* <li><a href='#'>Home</a></li>
-                <li><a href='#'>Productos</a></li>
-                <li><a href='#'>Nosotros</a></li>
-                <li><a href='#'>Contacto</a></li> */}
                 <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/catalogo'}>Productos</Link></li>
-                <li><Link to={'/detalle'}>Nosotros</Link></li>
-                <li><Link to={'/'}>Contacto</Link></li>
+                <li><Link to={'/catalogo/computers'}>Computadoras</Link></li>
+                <li><Link to={'/catalogo/smartphones'}>Smartphones</Link></li>
+                <li><Link to={'/catalogo/screens'}>Pantallas</Link></li>
             </ul>
             <CartWidget />
         </div>
