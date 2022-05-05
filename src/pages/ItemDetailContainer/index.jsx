@@ -1,12 +1,12 @@
 import React, { useState, useEffect} from 'react'
-import ItemDetail from '../ItemDetail/index'
+import ItemDetail from '../../components/ItemDetail/index'
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
-    const itemId = useParams();
+    const { id } = useParams();
     
-    function getItem() { 
+    function getItem(id) { 
     /* Mi fábrica de promesas */
         const myPromise = new Promise((resolve, reject) => {
             const itemDetails =
@@ -53,21 +53,21 @@ const ItemDetailContainer = () => {
                 , stock: 5
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
-        ]
-            setTimeout(() => {resolve(itemDetails)}, 2000);
+                ]
+            const item = itemDetails.filter((item) => item.id === parseInt(id))[0];
+            setTimeout(() => {resolve(item)}, 2000);
         })
     return myPromise;
-}
+    }
     
     const [itemDetails, setitemDetails] = useState([]);
 
-
     useEffect(() => { 
-            getItem()
-            .then(res => { setitemDetails(res.filter((item) => item.id === parseInt((itemId.id)))[0]) }) 
+        getItem(id)
+            .then(res => { setitemDetails(res) }) 
             /* compara el id de los objetos con el id pasado por parametro en la URL y devuelve sólo el objeto dentro del array */
             .catch(err => { console.error(err) });
-    }, []) 
+    }, [id]) 
 
     return (
         

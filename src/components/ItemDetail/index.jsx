@@ -6,7 +6,7 @@ import './ItemDetail.css'
 const ItemDetail = ({ itemDetails }) => {
 
   const onAdd = (totalCount) => { 
-    console.log(`La cantidad final es ${totalCount}`);
+    alert(`La cantidad final es ${totalCount}`);
   }
   return (
       <div className='item-detail-cont'>

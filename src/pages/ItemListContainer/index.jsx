@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ItemListContainer.css'
-import ItemList from '../ItemList'
+import ItemList from '../../components/ItemList'
 import { useParams } from 'react-router-dom';
 
-function getItems() { 
+function getItems(categoryId) { 
 
     /* Mi fábrica de promesas */
         const myPromise = new Promise((resolve, reject) => {
@@ -15,7 +15,9 @@ function getItems() {
                 , { id: 5, name: 'random 5', img: 'https://picsum.photos/id/5/200', category:'screens' }
                 , { id: 6, name: 'random 6', img: 'https://picsum.photos/id/6/200', category:'screens' }
             ]
-            setTimeout(() => {resolve(itemList)}, 2000);
+
+            const itemsFiltered = categoryId === undefined ? itemList : itemList.filter((item) => item.category === categoryId);
+            setTimeout(() => {resolve(itemsFiltered)}, 2000);
         })
     return myPromise;
 }
@@ -23,19 +25,19 @@ function getItems() {
 function ItemListContainer(props) {
 
     const [items, setItems] = useState([]);
-    const itemCategory = useParams();
+    const {categoryId} = useParams();
 
     useEffect(() => { 
-        getItems()
-            .then(res => { itemCategory.category === undefined ? setItems(res) : setItems(res.filter((item) => item.category === itemCategory.category)) })
+        getItems(categoryId)
+            .then(res => {setItems(res)})
             /* busca si paso categoría como parámetro, si lo hace compara el nombre de categoría de los objetos con el nombre pasado por parametro en la URL y devuelve sólo los objetos dentro del array, sino muestra todos los productos */
             .catch(err => { console.error(err) });
-    }, [itemCategory])
+    }, [categoryId])
 
     return (
         <div className='item-list-container'>
             {props.texto ? <p>{props.texto}</p> : null}
-            <ItemList itemList={ items }/>
+            <ItemList itemList={items}/>
         </div>
     );
 }
