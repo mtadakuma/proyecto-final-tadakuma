@@ -29,3 +29,25 @@
         margin-top: 20px;
     }
 }
+
+.finish-buying-container{
+    max-width: 300px;
+    width: 100%;
+}
+
+.finish-buying-btn{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    height: 40px;
+    background-color:transparent;
+    border:2px solid;
+    color:white;
+    background-color:rgb(48, 116, 175);
+    border-radius: 10px;
+}
+
+.finish-buying-btn:hover{
+    color:white;
+    background-color:rgb(112, 143, 217);
+}
