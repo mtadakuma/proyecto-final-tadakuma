@@ -20,7 +20,6 @@ function App() {
         <Route path='/catalogo/:categoryId' element={<ItemListContainer />} />
         <Route path='/item/:id' element={<ItemDetailContainer /> }/>
       </Routes> 
-      
     </div>
   );
 }

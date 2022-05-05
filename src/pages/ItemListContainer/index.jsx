@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ItemListContainer.css'
 import ItemList from '../../components/ItemList'
 import { useParams } from 'react-router-dom';
+import Loader from '../../components/Loader';
 
 function getItems(categoryId) { 
 
@@ -25,19 +26,22 @@ function getItems(categoryId) {
 function ItemListContainer(props) {
 
     const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const {categoryId} = useParams();
 
     useEffect(() => { 
+        setIsLoading(true);
         getItems(categoryId)
             .then(res => {setItems(res)})
             /* busca si paso categoría como parámetro, si lo hace compara el nombre de categoría de los objetos con el nombre pasado por parametro en la URL y devuelve sólo los objetos dentro del array, sino muestra todos los productos */
-            .catch(err => { console.error(err) });
+            .catch(err => { console.error(err)})
+            .finally(() => { setIsLoading(false)})
     }, [categoryId])
 
     return (
         <div className='item-list-container'>
             {props.texto ? <p>{props.texto}</p> : null}
-            <ItemList itemList={items}/>
+            {isLoading ? <Loader/> : <ItemList itemList={items} />}
         </div>
     );
 }

@@ -1,8 +1,8 @@
 .item-list-container{
-    height: 80vh;
+    height: 100vh;
     width: 100%;
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
     color:white;
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
