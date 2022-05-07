@@ -27,8 +27,9 @@ function ItemListContainer(props) {
 
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const {categoryId} = useParams();
+    const { categoryId } = useParams();
 
+    
     useEffect(() => { 
         setIsLoading(true);
         getItems(categoryId)

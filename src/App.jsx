@@ -5,23 +5,16 @@ import ItemDetailContainer from '../src/pages/ItemDetailContainer';
 import Cart from '../src/pages/Cart';
 import { Routes, Route } from 'react-router-dom';
 
-
 function App() {
   return (
     <div className="App">
-
-      {/* <NavBar /> */}
-      {/* <ItemListContainer /> */}  
-      {/* Comentado para dejar visible sólo ItemDetailContainer */}
-      {/* <ItemDetailContainer/> */}
-    
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer /> }/>
-        <Route path='/catalogo/:categoryId' element={<ItemListContainer />} />
-        <Route path='/item/:id' element={<ItemDetailContainer />} />
-        <Route path='/cart' element={<Cart/> }/>
-      </Routes> 
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer /> }/>
+          <Route path='/catalogo/:categoryId' element={<ItemListContainer />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
+          <Route path='/cart' element={<Cart/> }/>
+        </Routes> 
     </div>
   );
 }
