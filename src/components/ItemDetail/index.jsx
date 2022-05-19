@@ -8,9 +8,7 @@ import './ItemDetail.css'
 
 const ItemDetail = ({ itemDetails }) => {
 
-  const [cantProductos, setCantProductos] = useState(null);
   const onAdd = (quantityToAdd) => { 
-    setCantProductos(quantityToAdd);
     cartCtx.addProduct(itemDetails, quantityToAdd)
   }
   
@@ -25,6 +23,10 @@ const ItemDetail = ({ itemDetails }) => {
   const onShowCart = () => { 
     cartCtx.showCart();
   }
+
+  const onGetCartQuantity = () => {
+    cartCtx.getCartQuantity();
+  }
   
   /* Test para eliminar/limpiar y mostrar el carrito */
   const cartCtx = useContext(CartContext);
@@ -36,14 +38,14 @@ const ItemDetail = ({ itemDetails }) => {
             <p>{itemDetails.name}</p>
             <p>{itemDetails.desc}</p>
         <ItemCount stock={itemDetails.stock} initial={1} onAdd={onAdd} />
-        {cantProductos > 0 ?
+        {cartCtx.products.length > 0 &&
           <NavLink to='/cart' className='finish-buying-container'>
             <button className='finish-buying-btn'>Terminar compra</button>
-          </NavLink> :
-          null}
+          </NavLink>}
         <button onClick={onRemove}>Eliminar prod</button> 
         <button onClick={onClear}>Limpiar carrito</button> 
         <button onClick={onShowCart}>Mostrar carrito</button>  
+        <button onClick={onGetCartQuantity}>Mostrar Cantidad del carrito</button>  
         {/* Test para eliminar/limpiar y mostrar el carrito */}
           </div>
     </div>

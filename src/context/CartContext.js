@@ -6,7 +6,8 @@ const CartContext = createContext({
     addProduct: () => { },
     removeItem: () => { },
     clear: () => { },
-    showCart: () => { }
+    showCart: () => { },
+    getCartQuantity: () => {}
 });
 
 export const CartContextProvider = ({ children }) => {
@@ -15,12 +16,9 @@ export const CartContextProvider = ({ children }) => {
 
     const addProduct = (product, quantity) => { 
         if (!isInCart(product.id)) {
-            setProductList([...productList,{ ...product, quantity } ]);
-            alert('Nuevo producto agregado al carrito.');
-            console.log(productList);
+            setProductList([{ ...product, quantity } ,...productList,]);
         }  else if (findItem(product.id).quantity + quantity <= product.stock) {
-            findItem(product.id).quantity += quantity;
-            alert('Cantidad modificada.');
+            setProductList(productList.map(p => p.id === product.id ? {...p, quantity: p.quantity + quantity}: p));
         } 
         else { 
             alert('Superado el stock');
@@ -37,22 +35,26 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const removeItem = (itemId) => {
-        if (isInCart(itemId)) {
-            setProductList(productList.filter(({ product }) => product.id !== itemId));
-            alert('Producto Eliminado.');
+        if (productList.length !== 0 && findItem(itemId) && findItem(itemId).quantity <= 1) {
+            setProductList(productList.filter((product) => product.id !== itemId));
         } else {
-            alert('Este producto no está en el carrito.')
+            setProductList(productList.map(p => p.id === itemId ? {...p, quantity: p.quantity - 1}: p));
         }
     }
 
     const clear = () => { 
         setProductList([]);
-        alert('Carrito limpiado.');
     }
 
     const showCart = () => { 
         console.log(productList);
     }
+
+    const getCartQuantity = () => { 
+        return productList.reduce((total, value) => {
+            return total + value.quantity
+        }, 0)
+    } 
 
     return (
         <CartContext.Provider value={{
@@ -60,7 +62,8 @@ export const CartContextProvider = ({ children }) => {
             addProduct,
             removeItem,
             clear,
-            showCart
+            showCart,
+            getCartQuantity
         }}>
             {children}
     </CartContext.Provider>
