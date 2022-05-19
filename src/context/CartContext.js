@@ -15,29 +15,32 @@ export const CartContextProvider = ({ children }) => {
 
     const addProduct = (product, quantity) => { 
         if (!isInCart(product.id)) {
-            setProductList([...productList,{ product, quantity } ]);
+            setProductList([...productList,{ ...product, quantity } ]);
             alert('Nuevo producto agregado al carrito.');
-        } else if (findItem(product.id).quantity + quantity <= product.stock) {
+            console.log(productList);
+        }  else if (findItem(product.id).quantity + quantity <= product.stock) {
             findItem(product.id).quantity += quantity;
             alert('Cantidad modificada.');
-        } else { 
-            alert('Stock es superior al stock del producto.');
-        }
+        } 
+        else { 
+            alert('Superado el stock');
+            console.log(productList);
+        } 
     }
 
     const findItem = (id) => { 
-        return productList.find(({ product }) => product.id === id);
+        return productList.find((prod) => prod.id === id);
     }
 
     const isInCart = (id) => { 
         return findItem(id) ? true : false;
     }
 
-    const removeItem = (itemId) => { 
+    const removeItem = (itemId) => {
         if (isInCart(itemId)) {
             setProductList(productList.filter(({ product }) => product.id !== itemId));
             alert('Producto Eliminado.');
-        } else { 
+        } else {
             alert('Este producto no está en el carrito.')
         }
     }

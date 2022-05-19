@@ -3,7 +3,7 @@ import './Item.css'
 import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
-
+  
   return (
     <div className='item-card' key={item.key}>
         <h3>{item.name}</h3>

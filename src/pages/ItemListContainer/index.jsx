@@ -17,7 +17,7 @@ function getItems(categoryId) {
                 , { id: 6, name: 'random 6', img: 'https://picsum.photos/id/6/200', category:'screens' }
             ]
 
-            const itemsFiltered = categoryId === undefined ? itemList : itemList.filter((item) => item.category === categoryId);
+            const itemsFiltered = (categoryId === undefined ? itemList : itemList.filter((item) => item.category === categoryId));
             setTimeout(() => {resolve(itemsFiltered)}, 2000);
         })
     return myPromise;
@@ -39,10 +39,11 @@ function ItemListContainer(props) {
             .finally(() => { setIsLoading(false)})
     }, [categoryId])
 
+
     return (
         <div className='item-list-container'>
             {props.texto ? <p>{props.texto}</p> : null}
-            {isLoading ? <Loader/> : <ItemList itemList={items} />}
+            {isLoading ? <Loader/> : <ItemList items={items} />}
         </div>
     );
 }

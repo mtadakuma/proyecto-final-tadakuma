@@ -13,7 +13,7 @@ const ItemDetail = ({ itemDetails }) => {
     setCantProductos(quantityToAdd);
     cartCtx.addProduct(itemDetails, quantityToAdd)
   }
-  /*
+  
   const onRemove = () => { 
     cartCtx.removeItem(itemDetails.id);
   }
@@ -25,7 +25,7 @@ const ItemDetail = ({ itemDetails }) => {
   const onShowCart = () => { 
     cartCtx.showCart();
   }
-  */
+  
   /* Test para eliminar/limpiar y mostrar el carrito */
   const cartCtx = useContext(CartContext);
 
@@ -41,11 +41,9 @@ const ItemDetail = ({ itemDetails }) => {
             <button className='finish-buying-btn'>Terminar compra</button>
           </NavLink> :
           null}
-        {/*
         <button onClick={onRemove}>Eliminar prod</button> 
         <button onClick={onClear}>Limpiar carrito</button> 
         <button onClick={onShowCart}>Mostrar carrito</button>  
-        */}
         {/* Test para eliminar/limpiar y mostrar el carrito */}
           </div>
     </div>
