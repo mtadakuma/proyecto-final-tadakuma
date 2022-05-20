@@ -26,12 +26,17 @@
 }
 
 .nav-menu li a:hover{
-    color:white;
+    color:rgb(205, 100, 100);
 }
 
 .nav-logo{
     align-self:center;
     height: 50px;
+}
+
+.active{
+    color:white;
+    font-weight:700;
 }
 
 @media only screen and (max-width: 600px){

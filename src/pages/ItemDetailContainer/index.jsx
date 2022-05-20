@@ -18,13 +18,15 @@ const ItemDetailContainer = () => {
                 , name: 'random 1'
                 , img: 'https://picsum.photos/id/1/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
-            }
+                }
             , {
                 id: 2
                 , name: 'random 2'
                 , img: 'https://picsum.photos/id/2/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
             , {
@@ -32,6 +34,7 @@ const ItemDetailContainer = () => {
                 , name: 'random 3'
                 , img: 'https://picsum.photos/id/3/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
             , {
@@ -39,6 +42,7 @@ const ItemDetailContainer = () => {
                 , name: 'random 4'
                 , img: 'https://picsum.photos/id/4/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
             , {
@@ -46,6 +50,7 @@ const ItemDetailContainer = () => {
                 , name: 'random 5'
                 , img: 'https://picsum.photos/id/5/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
             , {
@@ -53,6 +58,7 @@ const ItemDetailContainer = () => {
                 , name: 'random 6'
                 , img: 'https://picsum.photos/id/6/200'
                 , stock: 5
+                , price: 100
                 , desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita cum velit, autem, debitis omnis maiores quos accusamus ipsam et odio iusto unde repudiandae harum rem possimus odit atque veniam nulla.'
             }
                 ]

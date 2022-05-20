@@ -2,17 +2,17 @@ import React from 'react';
 import './NavBar.css';
 import logo from './logo.png';
 import CartWidget from '../CartWidget';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
     return (
         <div className='nav'>
             <li><Link to={'/'}><img src={logo} alt='logo' className='nav-logo'/></Link></li>
             <ul className='nav-menu'>
-                <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/catalogo/computers'}>Computadoras</Link></li>
-                <li><Link to={'/catalogo/smartphones'}>Smartphones</Link></li>
-                <li><Link to={'/catalogo/screens'}>Pantallas</Link></li>
+                <li><NavLink to={'/'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Home</NavLink></li>
+                <li><NavLink to={'/catalogo/computers'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Computadoras</NavLink></li>
+                <li><NavLink to={'/catalogo/smartphones'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Smartphones</NavLink></li>
+                <li><NavLink to={'/catalogo/screens'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Pantallas</NavLink></li>
             </ul>
             <CartWidget />
         </div>

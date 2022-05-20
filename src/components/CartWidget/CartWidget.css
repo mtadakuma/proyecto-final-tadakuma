@@ -4,7 +4,27 @@
     font-size: 1.3em;
 }
 
+.cart-logo{
+    text-decoration:none;
+    color:brown;
+}
 
+.cart-logo:hover{
+    color:rgb(205, 100, 100);
+}
+
+.bubble{
+    border-radius:100%;
+    background-color:white;
+    position:absolute;
+    height: 15px;
+    width:15px;
+    right: 15px;
+    top:25px;
+    font-size: 10px;
+    border: 1px solid brown;
+    color:brown;
+}
 
 @media only screen and (max-width: 600px){
     .cart{
