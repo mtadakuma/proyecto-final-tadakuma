@@ -3,11 +3,12 @@ import './ItemListContainer.css'
 import ItemList from '../../components/ItemList'
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/Loader';
+import {collection, getDocs, getFirestore, query, where, limit} from 'firebase/firestore'
 
 function getItems(categoryId) { 
 
     /* Mi fábrica de promesas */
-        const myPromise = new Promise((resolve, reject) => {
+/*         const myPromise = new Promise((resolve, reject) => {
             const itemList = [
                 { id: 1, name: 'random 1', img: 'https://picsum.photos/id/1/200', category:'computers' }
                 , { id: 2, name: 'random 2', img: 'https://picsum.photos/id/2/200', category:'computers' }
@@ -20,7 +21,17 @@ function getItems(categoryId) {
             const itemsFiltered = (categoryId === undefined ? itemList : itemList.filter((item) => item.category === categoryId));
             setTimeout(() => {resolve(itemsFiltered)}, 2000);
         })
-    return myPromise;
+    return myPromise; */
+
+    const db = getFirestore();
+        
+    const itemsCollection = collection(db, 'items');
+
+    const q = categoryId && query(
+        itemsCollection,
+        where('category', '==', categoryId)
+    )
+    return getDocs(q || itemsCollection);
 }
 
 function ItemListContainer(props) {
@@ -30,10 +41,32 @@ function ItemListContainer(props) {
     const { categoryId } = useParams();
 
     
-    useEffect(() => { 
+    useEffect(() => {
+
+        /*     const db = getFirestore();
+                
+            const itemsCollection = collection(db, 'items');
+        
+            const q = query(
+                itemsCollection, 
+                where('category','==', 'computers')
+            )
+            getDocs(q)
+            .then((snapshot) => {
+                    console.log(snapshot.docs.map(doc => {
+                        return { ...doc.data(), id: doc.id }
+                    }))
+                })
+                .catch((err) => {
+                    console.error(err);
+                }); */
         setIsLoading(true);
         getItems(categoryId)
-            .then(res => {setItems(res)})
+            .then(snapshot => {
+                setItems(snapshot.docs.map(
+                    doc => { return { ...doc.data(), id: doc.id }}
+                ))
+            })
             /* busca si paso categoría como parámetro, si lo hace compara el nombre de categoría de los objetos con el nombre pasado por parametro en la URL y devuelve sólo los objetos dentro del array, sino muestra todos los productos */
             .catch(err => { console.error(err)})
             .finally(() => { setIsLoading(false)})
