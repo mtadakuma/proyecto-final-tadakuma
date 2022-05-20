@@ -9,6 +9,8 @@
 .item-card > img{
     border-radius: 10px;
     max-width: 300px;
+    background-color:white;
+    padding:10px;
 }
 
 .item-card-detail-btn{

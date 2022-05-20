@@ -3,14 +3,23 @@ import ItemDetail from '../../components/ItemDetail/index'
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/Loader';
 import './ItemDetailContainer.css'
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+
 
 const ItemDetailContainer = () => {
 
     const { id } = useParams();
     
     function getItem(id) { 
+
+        const db = getFirestore();
+
+        const itemRef = doc(db, 'items', id);
+
+        return getDoc(itemRef);
+
     /* Mi fábrica de promesas */
-        const myPromise = new Promise((resolve, reject) => {
+/*         const myPromise = new Promise((resolve, reject) => {
             const itemDetails =
             [
             {
@@ -65,7 +74,7 @@ const ItemDetailContainer = () => {
             const item = itemDetails.filter((item) => item.id === parseInt(id))[0];
             setTimeout(() => {resolve(item)}, 2000);
         })
-    return myPromise;
+    return myPromise; */
     }
     
     const [itemDetails, setitemDetails] = useState([]);
@@ -74,7 +83,10 @@ const ItemDetailContainer = () => {
     useEffect(() => { 
         setIsLoading(true);
         getItem(id)
-            .then(res => { setitemDetails(res) }) 
+            .then(snapshot => {
+                setitemDetails(
+                {...snapshot.data(), id: snapshot.id}
+            ) }) 
             /* compara el id de los objetos con el id pasado por parametro en la URL y devuelve sólo el objeto dentro del array */
             .catch(err => { console.error(err) })
             .finally(() => { setIsLoading(false)})
