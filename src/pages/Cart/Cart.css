@@ -62,23 +62,47 @@
     color:white;
 }
 
-.item-det > img{
+.item-det-img > img{
+    height: 100px;
+    width: 100px;
+   
+}
+
+.item-det-img{
     height: 100px;
     width: 100px;
     border-radius: 8px;
+    background-color:white;
+    padding: 5px;
+    margin: 0 auto;
 }
 
-.cart-clear-btn{
+.cart-clear-btn, 
+.cart-finish-btn
+{
     border:none;
     margin-bottom: 10px;
     background-color:antiquewhite;
-    color:brown;
     padding: 10px 30px;
     border-radius: 8px;
     font-weight:700;
+    margin: 20px;
 }
 
 .cart-clear-btn:hover{
     background-color:indianred;
     color:white;
+}
+
+.cart-finish-btn:hover{
+    background-color:green;
+    color:white;
+}
+
+.cart-clear-btn{
+    color:brown;
+}
+
+.cart-finish-btn{
+    color:green;
 }

@@ -3,7 +3,7 @@ import './ItemListContainer.css'
 import ItemList from '../../components/ItemList'
 import { useParams } from 'react-router-dom';
 import Loader from '../../components/Loader';
-import {collection, getDocs, getFirestore, query, where, limit} from 'firebase/firestore'
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
 
 function getItems(categoryId) { 
 

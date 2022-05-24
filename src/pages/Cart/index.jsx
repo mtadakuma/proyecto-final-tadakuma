@@ -1,7 +1,7 @@
-import React, {useState, useEffect , useContext} from 'react'
+import React, { useContext} from 'react'
 import './Cart.css'
 import CartContext from '../../context/CartContext'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const Cart = () => {
@@ -13,10 +13,13 @@ const Cart = () => {
         <div className='cart-items'>
           {
           cartCtx.products.map((item) =>
-            <div className='cart-item'>
+            <div className='cart-item' key={item.id}>
               <div className='item-det'>
                 <h2>{item.name}</h2>
-                <img src={item.img} alt={item.name} />
+                <div className='item-det-img'>
+                  <img src={item.img} alt={item.name} />
+                </div>
+                
               </div>
               <div className='cart-item-controls'>
                 <button onClick={()=>cartCtx.removeItem(item.id)} className='cart-item-minus'>-</button>
@@ -27,7 +30,10 @@ const Cart = () => {
             </div>)
           }
           <h3>Total a pagar: ${cartCtx.getTotalValue()}</h3>
-          <button onClick={()=>cartCtx.clear()} className='cart-clear-btn'>Vaciar carrito</button>
+          <button onClick={() => cartCtx.clear()} className='cart-clear-btn'>Vaciar carrito</button>
+          <Link to='/checkout'>
+            <button className='cart-finish-btn'>Finalizar compra</button>
+          </Link>
         </div>
         :
         <div>
