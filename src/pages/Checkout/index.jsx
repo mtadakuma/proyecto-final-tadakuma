@@ -111,8 +111,8 @@ const Checkout = () => {
         {
           orderId && <div className='checkout-cont'>
             <h4>Compra Finalizada con Exito</h4>
-            <h4>Aqui está su ID de orden: {orderId}</h4>
-            <Link to={"/"}><h5>Realizar otra compra</h5></Link>
+            <h4>Aqui está su ID de orden: <span className='order-id'>{orderId}</span></h4>
+            <Link to={"/"}><button className='other-purchase-btn'>Realizar otra compra</button></Link>
           </div>
         }
       </div>

@@ -5,7 +5,7 @@ import ItemDetailContainer from '../src/pages/ItemDetailContainer';
 import Cart from '../src/pages/Cart';
 import Checkout from '../src/pages/Checkout';
 import { Routes, Route } from 'react-router-dom';
-
+import Footer from './components/Footer/index.jsx';
 function App() {
   return (
     <div className="App">
@@ -16,7 +16,8 @@ function App() {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout/> }/>
-        </Routes> 
+      </Routes> 
+      <Footer/>
     </div>
   );
 }

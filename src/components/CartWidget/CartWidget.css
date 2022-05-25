@@ -32,4 +32,10 @@
     justify-content:center;
     padding: 5px;
     }
+
+    .bubble{
+        position:relative;
+        top:-13px;
+        right: 10px;
+    }
 }
