@@ -32,10 +32,14 @@
 }
 
 .checkout-finish-btn{
-    background-color:rgb(73, 164, 243);
+    background-color: rgb(21, 71, 114);
     border-radius: 8px;
     color:white;
     max-width: 312px;
+}
+
+.checkout-finish-btn:hover{
+    background-color:rgb(73, 164, 243);
 }
 
 .checkout-cont{
