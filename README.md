@@ -6,6 +6,12 @@ The objective is to make a fully functional and responsive
 e-commerce web page. Up until now I've added state hooks
 and routing.
 
+## Deployment
+
+You can find the deployed version here
+
+https://react-e-commerce-tadakuma.netlify.app/
+
 ## Tech Stack
 
 React, NPM, HTML, CSS, VanillaJS, Firebase, Firestore, Axios
