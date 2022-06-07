@@ -8,7 +8,7 @@ const Item = ({ item }) => {
     <div className='item-card' key={item.key}>
         <h3>{item.name}</h3>
       <img src={item.img} alt={item.name} />
-     <Link to={`/item/${item.id}`}><button className='item-card-detail-btn'>Ver detalle</button></Link>
+     <Link to={`/item/${item.id}`}><button className='item-card-detail-btn'>View Details</button></Link>
     </div>
   )
 }

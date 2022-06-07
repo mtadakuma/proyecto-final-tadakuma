@@ -11,24 +11,6 @@ const ItemDetail = ({ itemDetails }) => {
   const onAdd = (quantityToAdd) => { 
     cartCtx.addProduct(itemDetails, quantityToAdd)
   }
-  /* 
-  const onRemove = () => { 
-    cartCtx.removeItem(itemDetails.id);
-  }
-
-  const onClear = () => { 
-    cartCtx.clear();
-  }
-
-  const onShowCart = () => { 
-    cartCtx.showCart();
-  }
-
-  const onGetCartQuantity = () => {
-    cartCtx.getCartQuantity();
-  } */
-  
-  /* Test para eliminar/limpiar y mostrar el carrito */
   const cartCtx = useContext(CartContext);
 
   return (
@@ -40,15 +22,8 @@ const ItemDetail = ({ itemDetails }) => {
         <ItemCount stock={itemDetails.stock} initial={1} onAdd={onAdd} />
         {cartCtx.products.length > 0 &&
           <NavLink to='/cart' className='finish-buying-container'>
-            <button className='finish-buying-btn'>Terminar compra</button>
+            <button className='finish-buying-btn'>Finish buying</button>
           </NavLink>}
-        
-        {/* <button onClick={onRemove}>Eliminar prod</button> 
-        <button onClick={onClear}>Limpiar carrito</button> 
-        <button onClick={onShowCart}>Mostrar carrito</button>  
-        <button onClick={onGetCartQuantity}>Mostrar Cantidad del carrito</button>  
-         */}
-        {/* Test para eliminar/limpiar y mostrar el carrito */}
           </div>
     </div>
   )

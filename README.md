@@ -8,7 +8,19 @@ and routing.
 
 ## Tech Stack
 
-React, NPM, HTML, CSS, VanillaJS
+React, NPM, HTML, CSS, VanillaJS, Firebase, Firestore, Axios
+
+## Dependencies
+
+Dependencies
+
+- react
+- react-dom
+- react-router-dom
+- firebase
+- axios
+- fortawesome
+- fontawesome
 
 ## Run Locally
 
@@ -21,7 +33,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd proyecto-final-tadakuma
+  cd my-project
 ```
 
 Install dependencies
@@ -34,6 +46,44 @@ Start the server
 
 ```bash
   npm run start
+```
+
+## Project Structure
+
+```bash
+.
+├── node_modules
+├── public
+├── src
+    ├── components
+		├── CartWidget
+		├── Footer
+		├── Input
+		├── Item
+		├── ItemCount
+		├── ItemDetail
+		├── ItemList
+		├── Loader
+		└── NavBar
+	├── context
+	├── pages
+		├── Cart
+		├── Checkout
+		├── ItemDetailContainer
+		└── ItemListContainer
+	├── App.css
+	├── App.jsx
+	├── App.test.jsx
+	├── index.css
+	├── index.js
+	├── logo.svg
+	├── reportWebVitals.js
+	└── setupTests.js
+├── .gitignore
+├── Demo_Tadakuma.gif
+├── package-lock.json
+├── package.json
+└── README.md
 ```
 
 ## Authors

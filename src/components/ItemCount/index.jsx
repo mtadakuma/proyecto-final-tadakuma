@@ -27,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
                 <p className='counter'>{ count }</p>
                 <FontAwesomeIcon icon={faPlus} onClick={()=> addCount(count)}/>
             </div>
-            <button className='add-items' onClick={() => onAdd(count)}>Agregar al carrito</button>
+            <button className='add-items' onClick={() => onAdd(count)}>Add to cart</button>
         </div>
     )
 }

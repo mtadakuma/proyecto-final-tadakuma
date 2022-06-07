@@ -66,9 +66,9 @@ const Checkout = () => {
       
       {isLoading ? <Loader/> :
         (!orderId && <div className='checkout-cont'>
-        <h2 className='checkout-title'>Finalizando Compra</h2>
+        <h2 className='checkout-title'>Finishing your order</h2>
         <hr />
-        <h4 className='checkout-subtitle'>Completar datos:</h4>
+        <h4 className='checkout-subtitle'>Complete fields:</h4>
         <br />
 
         <form onSubmit={handleSubmit} className='checkout-form'>
@@ -110,9 +110,9 @@ const Checkout = () => {
       <div>
         {
           orderId && <div className='checkout-cont'>
-            <h4>Compra Finalizada con Exito</h4>
-            <h4>Aqui está su ID de orden: <span className='order-id'>{orderId}</span></h4>
-            <Link to={"/"}><button className='other-purchase-btn'>Realizar otra compra</button></Link>
+            <h4>Order completed succesfully</h4>
+            <h4>Here's your order ID: <span className='order-id'>{orderId}</span></h4>
+            <Link to={"/"}><button className='other-purchase-btn'>Make another purchase</button></Link>
           </div>
         }
       </div>

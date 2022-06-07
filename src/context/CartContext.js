@@ -22,8 +22,7 @@ export const CartContextProvider = ({ children }) => {
             setProductList(productList.map(p => p.id === product.id ? {...p, quantity: p.quantity + quantity}: p));
         } 
         else { 
-            alert('Superado el stock');
-            console.log(productList);
+            alert('Out of stock');
         } 
     }
 

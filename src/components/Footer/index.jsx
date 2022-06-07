@@ -5,7 +5,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <div className='footer'>Creado con <FontAwesomeIcon icon={faHeart} /> por Miguel Angel Tadakuma 2022</div>
+    <div className='footer'>Created with <FontAwesomeIcon icon={faHeart} /> by Miguel Angel Tadakuma 2022</div>
   )
 }
 

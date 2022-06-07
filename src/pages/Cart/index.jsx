@@ -29,16 +29,16 @@ const Cart = () => {
               <h2>${item.quantity * item.price}</h2>
             </div>)
           }
-          <h3>Total a pagar: ${cartCtx.getTotalValue()}</h3>
-          <button onClick={() => cartCtx.clear()} className='cart-clear-btn'>Vaciar carrito</button>
+          <h3>Total: ${cartCtx.getTotalValue()}</h3>
+          <button onClick={() => cartCtx.clear()} className='cart-clear-btn'>Clear Cart</button>
           <Link to='/checkout'>
-            <button className='cart-finish-btn'>Finalizar compra</button>
+            <button className='cart-finish-btn'>Finish buying</button>
           </Link>
         </div>
         :
         <div>
-          <h2>No hay productos agregados al carrito :(</h2>
-          <h3>Puedes agregar alguno desde <NavLink to={'/'} className='cart-return'>aquí</NavLink></h3>
+          <h2>There are no products on your cart :(</h2>
+          <h3>You may add products from <NavLink to={'/'} className='cart-return'>here</NavLink></h3>
         </div>
     }
       

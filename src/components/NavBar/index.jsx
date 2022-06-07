@@ -10,9 +10,9 @@ function NavBar() {
             <li><Link to={'/'}><img src={logo} alt='logo' className='nav-logo'/></Link></li>
             <ul className='nav-menu'>
                 <li><NavLink to={'/'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Home</NavLink></li>
-                <li><NavLink to={'/catalogo/computers'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Computadoras</NavLink></li>
+                <li><NavLink to={'/catalogo/computers'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Computers</NavLink></li>
                 <li><NavLink to={'/catalogo/smartphones'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Smartphones</NavLink></li>
-                <li><NavLink to={'/catalogo/screens'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Pantallas</NavLink></li>
+                <li><NavLink to={'/catalogo/screens'} className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Screens</NavLink></li>
             </ul>
             <CartWidget />
         </div>
